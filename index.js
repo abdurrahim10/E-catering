@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const loginRoutes = require("./routes/loginRoutes");
+const findUserRoutes = require("./routes/findUserRoutes");
 
 const bodyParser = require("body-parser");
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 app.use("/api/users", loginRoutes);
+app.use("/api/users", findUserRoutes);
 
 // Start the server
 console.log("rahim");
