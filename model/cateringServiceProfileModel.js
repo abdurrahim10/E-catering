@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  servicecharges: {
+    type: String,
+    required: true,
+  },
   address: {
     type: String,
     required: true,
@@ -24,6 +28,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model("findUserModel", userSchema);
+const User = mongoose.model("cateringServiceProfile", userSchema);
 
 module.exports = User;

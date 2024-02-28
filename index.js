@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const app = express();
 const loginRoutes = require("./routes/loginRoutes");
 const findUserRoutes = require("./routes/findUserRoutes");
+const cateringServiceProfile = require("./routes/cateringServiceProfileRoutes");
 
 const bodyParser = require("body-parser");
 
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", loginRoutes);
 app.use("/api/users", findUserRoutes);
+app.use("/api/users", cateringServiceProfile);
 
 // Start the server
 console.log("rahim");

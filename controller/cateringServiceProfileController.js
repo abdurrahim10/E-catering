@@ -1,10 +1,17 @@
-const User = require("../model/findUserModel");
+const User = require("../model/cateringServiceProfileModel");
 
 exports.createUser = async (req, res) => {
   try {
-    const { name, email, phone, address } = req.body;
+    const { name, email, phone, address, servicecharges } = req.body;
     const imageUrl = req.file ? req.file.path : null; // Check if req.file exists and get the file path
-    const newUser = new User({ name, email, phone, address, imageUrl });
+    const newUser = new User({
+      name,
+      email,
+      phone,
+      address,
+      imageUrl,
+      servicecharges,
+    });
     await newUser.save();
     res.status(201).send(newUser);
   } catch (error) {
@@ -27,10 +34,10 @@ exports.getUserProfile = async (req, res) => {
 // Update user profile by ID
 exports.updateUserProfile = async (req, res) => {
   try {
-    const { name, email, phone, address } = req.body;
+    const { name, email, phone, address, servicecharges } = req.body;
     const updatedUser = await User.findByIdAndUpdate(
       req.user, // Using req.user from the middleware
-      { name, email, phone, address },
+      { name, email, phone, address, servicecharges },
       { new: true }
     );
     if (!updatedUser) {
